@@ -2,12 +2,12 @@
 
 This is a disassembly of Pokémon Gold and Pokémon Silver.
 
-It builds the following ROMs:
+It builds the following ROMs for Analogue Pocket GB Studio mode:
 
-- Pokemon - Gold Version (UE) [C][!].gbc `sha1: d8b8a3600a465308c9953dfa04f0081c05bdcb94`
-- Pokemon - Silver Version (UE) [C][!].gbc `sha1: 49b163f7e57702bc939d642a18f591de55d92dae`
-- mons2_gld_ps3_debug.bin `sha1: 53783c57378122805c5b4859d19e1a224f02a1ed`
-- mons2_slv_ps3_debug.bin `sha1: 4c2fafebdbc7551f4cd3f348bdd17e420b93b6e7`
+- Pokemon - Gold Version (UE) [C][!].gbc `sha1: ca503351762ef1836c309c4f829189ce3d649fe6`
+- Pokemon - Silver Version (UE) [C][!].gbc `sha1: 38ab1a894e288cd16a5919c3ab878d2d434d5b03`
+- mons2_gld_ps3_debug.bin `sha1: ce119618a87032e46c407b567c67708a95cbf222`
+- mons2_slv_ps3_debug.bin `sha1: fe54a8d5707e232d99b0ddfc0d8555e1a2a02d3a`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 

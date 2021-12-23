@@ -104,7 +104,7 @@ CopyTilemapAtOnce::
 	ld l, 0
 	ld a, SCREEN_HEIGHT
 	ldh [hTilesPerCycle], a
-	ld b, 1 << 1 ; not in v/hblank
+	ld b, %01000000 ; not in v/hblank
 	ld c, LOW(rSTAT)
 
 .loop

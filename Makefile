@@ -1,4 +1,4 @@
-roms := pokegold.gbc pokesilver.gbc pokegold_debug.gbc pokesilver_debug.gbc
+roms := pokegold.pocket pokesilver.pocket pokegold_debug.pocket pokesilver_debug.pocket
 
 rom_obj := \
 audio.o \
@@ -55,16 +55,16 @@ RGBLINK ?= $(RGBDS)rgblink
 .SECONDARY:
 
 all: $(roms)
-gold:         pokegold.gbc
-silver:       pokesilver.gbc
-gold_debug:   pokegold_debug.gbc
-silver_debug: pokesilver_debug.gbc
+gold:         pokegold.pocket
+silver:       pokesilver.pocket
+gold_debug:   pokegold_debug.pocket
+silver_debug: pokesilver_debug.pocket
 
 clean: tidy
 	find gfx \( -name "*.[12]bpp" -o -name "*.lz" -o -name "*.gbcpal" -o -name "*.dimensions" -o -name "*.sgb.tilemap" \) -delete
 
 tidy:
-	rm -f $(roms) $(pokegold_obj) $(pokesilver_obj) $(pokegold_debug_obj) $(pokesilver_debug_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym) rgbdscheck.o
+	rm -f $(roms) $(pokegold_obj) $(pokesilver_obj) $(pokegold_debug_obj) $(pokesilver_debug_obj) $(roms:.pocket=.map) $(roms:.pocket=.sym) rgbdscheck.o
 	$(MAKE) clean -C tools/
 
 compare: $(roms)
@@ -123,12 +123,12 @@ $(foreach obj, $(silver_debug_excl_obj), \
 endif
 
 
-pokegold_opt         = -cjsv -t POKEMON_GLD -i AAUE -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokesilver_opt       = -cjsv -t POKEMON_SLV -i AAXE -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokegold_debug_opt   = -cjsv -t POKEMON_GLD -i AAUE -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokesilver_debug_opt = -cjsv -t POKEMON_SLV -i AAXE -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokegold_opt         = -cjs -t POKEMON_GLD -i AAUE -k 01 -l 0x33 -m 0x1b -r 3 -p 0 -f hg
+pokesilver_opt       = -cjs -t POKEMON_SLV -i AAXE -k 01 -l 0x33 -m 0x1b -r 3 -p 0 -f hg
+pokegold_debug_opt   = -cjs -t POKEMON_GLD -i AAUE -k 01 -l 0x33 -m 0x1b -r 3 -p 0 -f hg
+pokesilver_debug_opt = -cjs -t POKEMON_SLV -i AAXE -k 01 -l 0x33 -m 0x1b -r 3 -p 0 -f hg
 
-%.gbc: $$(%_obj) layout.link
+%.pocket: $$(%_obj) layout.link
 	$(RGBLINK) -n $*.sym -m $*.map -l layout.link -o $@ $(filter %.o,$^)
 	$(RGBFIX) $($*_opt) $@
 	tools/stadium $@

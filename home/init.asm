@@ -94,7 +94,7 @@ Init::
 	ldh [hSCY], a
 	ldh [rJOYP], a
 
-	ld a, $8 ; HBlank int enable
+	ld a, $10 ; HBlank int enable
 	ldh [rSTAT], a
 
 	ld a, $90
